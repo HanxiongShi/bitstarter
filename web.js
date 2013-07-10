@@ -5,13 +5,7 @@ var fs = require('fs');
 var string = "";
 
 app.get('/', function(request, response) {
-  
-  fs.readFileSync('index.html',"utf8", function(err,data){
-    if(err) throw err;
-//    var buffer = new Buffer(data, "utf8");
-//    response.send(buffer.toString());
-    console.log('index read to buffer');
-  });
+  response.send('Hello World!');
 });
 
 var port = process.env.PORT || 5000;
