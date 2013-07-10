@@ -2,15 +2,16 @@ var express = require('express');
 
 var app = express.createServer(express.logger());
 var fs = require('fs');
-var buffer = new Buffer(16);
+var string = "";
 
 app.get('/', function(request, response) {
   
-  fs.writeFile(buffer, index.html, function(err){
+  fs.readFileSync(' index.html', function(err,data){
     if(err) throw err;
+    var buffer = new Buffer(data, 'utf-8');
+    response.send(buffer.toString());
     console.log('index read to buffer');
   });
-  response.send(buffer.write("utf-8"));
 });
 
 var port = process.env.PORT || 5000;
