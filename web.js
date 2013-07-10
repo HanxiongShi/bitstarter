@@ -6,10 +6,9 @@ var string = "";
 
 app.get('/', function(request, response) {
   
-  fs.readFileSync('index.html', function(err,data){
+  fs.readFileSync('index.html','utf-8', function(err,data){
     if(err) throw err;
-    console.log(data);
-    var buffer = new Buffer(data, "utf8");
+    var buffer = new Buffer(data, "utf-8");
     response.send(buffer.toString());
     console.log('index read to buffer');
   });
